@@ -71,6 +71,7 @@ const App = () => {
                         <Form.Group controlId="tsvToParse">
                             <Form.Label>
                                 Paste from your favorite spreadsheet program
+                                (Make sure it has a header, for now)
                             </Form.Label>
                             <Form.Control
                                 as="textarea"
