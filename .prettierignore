@@ -7,3 +7,5 @@ jest.config.js
 next.config.js
 styles/css
 public
+demo-site
+dist
