@@ -10,7 +10,7 @@
     "format-check": "prettier --check .",
     "format": "prettier --write .",
     "test": "jest --coverage --passWithNoTests",
-    "lint": "eslint . --ext .tsx --ext .ts",
+    "lint": "eslint ./src --ext .tsx --ext .ts",
     "type-check": "tsc --noEmit",
     "clean-packages": "rimraf node_modules && rimraf package-lock.json"
   },
