@@ -1,0 +1,48 @@
+{
+  "name": "tsv-parse",
+  "version": "1.0.0",
+  "description": "A simple TSV parser for Node.js",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rimraf dist && tsc",
+    "format-check": "prettier --check .",
+    "format": "prettier --write .",
+    "test": "jest --coverage --passWithNoTests",
+    "lint": "eslint . --ext .tsx --ext .ts",
+    "type-check": "tsc --noEmit",
+    "clean-packages": "rimraf node_modules && rimraf package-lock.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dkershner6/tsv-parse.git"
+  },
+  "keywords": [
+    "tsv",
+    "parser",
+    "json"
+  ],
+  "author": "Derek Kershner",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dkershner6/tsv-parse/issues"
+  },
+  "homepage": "https://github.com/dkershner6/tsv-parse#readme",
+  "devDependencies": {
+    "@types/node": "^14.0.11",
+    "@typescript-eslint/eslint-plugin": "^3.1.0",
+    "@typescript-eslint/parser": "^3.1.0",
+    "cross-env": "^7.0.2",
+    "eslint": "^7.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "jest": "^26.0.1",
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^26.1.0",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.5"
+  },
+  "files": [
+    "dist/*"
+  ]
+}
