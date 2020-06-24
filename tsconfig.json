@@ -23,6 +23,7 @@
     "**/*.test.ts",
     "**/*.test.tsx",
     "coverage",
-    "jest.config.js"
+    "jest.config.js",
+    "demo-site"
   ]
 }
