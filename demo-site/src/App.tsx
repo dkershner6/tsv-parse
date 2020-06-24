@@ -58,6 +58,12 @@ const App = () => {
         <Container>
             <header>
                 <h1 className="display-2">TSV Parser</h1>
+                <p>
+                    Powered by{' '}
+                    <a href="https://github.com/dkershner6/tsv-parse">
+                        tsv-parse
+                    </a>
+                </p>
             </header>
             <main>
                 <Row className="mt-5">
