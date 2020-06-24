@@ -1,18 +1,19 @@
 import TSVParserOptions from './TSVParserOptions';
 import TSVLineResult from './TSVLineResult';
+import TSVResult from './TSVResult';
 
 const TAB = '\t';
 const NEWLINE_REGEX = /\r?\n/;
 
-const parse = (
-    tsvString: string,
-    options?: TSVParserOptions
-): TSVLineResult[] => {
+const parse = (tsvString: string, options?: TSVParserOptions): TSVResult => {
     const lines = tsvToLines(tsvString);
     if (options.headerRow) {
         const headerRow = lines.shift();
         const fieldNames = headerRow.split(TAB).filter(Boolean);
-        return lines.map((line) => parseLine(line, fieldNames));
+        return {
+            fieldNames,
+            lines: lines.map((line) => parseLine(line, fieldNames))
+        };
     }
     throw new Error(
         'Feature not implemented yet (yes, I know its the default)'
@@ -38,7 +39,6 @@ const parseLineWithHeader = (
     fieldNames: string[]
 ): TSVLineResult => {
     const numberOfValues = fieldNames.length;
-    console.log(tsvLine);
     const lineValues = tsvLine.split(TAB);
 
     if (lineValues.length !== numberOfValues) {
@@ -50,7 +50,7 @@ const parseLineWithHeader = (
 
     return {
         error: false,
-        result: mapValuesToFieldNames(lineValues, fieldNames)
+        parsedLine: mapValuesToFieldNames(lineValues, fieldNames)
     };
 };
 

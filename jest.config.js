@@ -4,7 +4,7 @@ module.exports = {
     transform: {
         '^.+\\.(ts|tsx)$': 'ts-jest'
     },
-    testPathIgnorePatterns: ['./node_modules/'],
+    testPathIgnorePatterns: ['./node_modules/', './demo-site', 'dist'],
     collectCoverage: true,
     collectCoverageFrom: ['src/**/*.{ts,tsx}'],
     coveragePathIgnorePatterns: ['node_modules'],

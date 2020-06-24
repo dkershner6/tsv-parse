@@ -10,18 +10,18 @@ describe('parse', () => {
         it('Should parse a simple TSV', () => {
             const results = parse(simpleMock, options);
 
-            results.forEach((result) => {
-                expect(result.error).toBeFalsy();
-                expect(Object.keys(result.result)).toHaveLength(3);
+            results.lines.forEach((line) => {
+                expect(line.error).toBeFalsy();
+                expect(Object.keys(line.parsedLine)).toHaveLength(3);
             });
         });
 
         it('Should find an error when a line with too many values is found', () => {
             const results = parse(withTooManyValues, options);
 
-            results.forEach((result) => {
-                expect(result.error).toBeTruthy();
-                expect(result.errorMessage).toEqual(
+            results.lines.forEach((line) => {
+                expect(line.error).toBeTruthy();
+                expect(line.errorMessage).toEqual(
                     `Line has ${4} values, but header indicates ${3} values.`
                 );
             });
@@ -30,9 +30,9 @@ describe('parse', () => {
         it('Should fail somehow if tabs are just all over the place', () => {
             const results = parse(tabsEverywhere, options);
 
-            results.forEach((result) => {
-                expect(result.error).toBeTruthy();
-                expect(result.errorMessage).toEqual(
+            results.lines.forEach((line) => {
+                expect(line.error).toBeTruthy();
+                expect(line.errorMessage).toEqual(
                     `Line has ${9} values, but header indicates ${3} values.`
                 );
             });
