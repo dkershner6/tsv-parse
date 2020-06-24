@@ -1,5 +1,5 @@
 node_modules/**
-examples/node_modules/**
+demo-site/**
 dist/**
 examples/coverage/**
 examples/build/**

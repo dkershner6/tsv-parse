@@ -1,14 +1,16 @@
 {
   "name": "tsv-parse",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A simple TSV parser for Node.js",
   "main": "dist/index.js",
   "scripts": {
     "build": "rimraf dist && tsc",
+    "install:demo-site": "cd demo-site && npx npm-check-updates tsv-parse && npm i",
+    "build:demo-site": "cd demo-site && npm run build",
     "format-check": "prettier --check .",
     "format": "prettier --write .",
     "test": "jest --coverage --passWithNoTests",
-    "lint": "eslint . --ext .tsx --ext .ts",
+    "lint": "eslint ./src --ext .tsx --ext .ts",
     "type-check": "tsc --noEmit",
     "clean-packages": "rimraf node_modules && rimraf package-lock.json"
   },
