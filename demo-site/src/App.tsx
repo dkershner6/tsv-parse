@@ -35,7 +35,6 @@ const App = () => {
     };
 
     const renderLine = (line: TSVLineResult) => {
-        console.log(line);
         if (line.error) {
             return (
                 <tr className="table-danger">
@@ -54,10 +53,17 @@ const App = () => {
         );
     };
 
+    const renderJson = () => {
+        if (!parsedResult) {
+            return null;
+        }
+        return <pre>{JSON.stringify(parsedResult, null, 2)}</pre>;
+    };
+
     return (
         <Container>
             <header>
-                <h1 className="display-2">TSV Parser</h1>
+                <h1 className="display-3">TSV Parser</h1>
                 <p>
                     Powered by{' '}
                     <a href="https://github.com/dkershner6/tsv-parse">
@@ -86,6 +92,16 @@ const App = () => {
                 </Row>
                 <Row className="mt-3">
                     <Col>{renderTable()}</Col>
+                </Row>
+                <Row className="mt-3">
+                    {parsedResult && (
+                        <Col>
+                            <h4>The JSON result</h4>
+                        </Col>
+                    )}
+                </Row>
+                <Row>
+                    <Col>{renderJson()}</Col>
                 </Row>
             </main>
         </Container>
