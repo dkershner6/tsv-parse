@@ -27,14 +27,28 @@ describe('parse', () => {
             });
         });
 
-        it('Should fail somehow if tabs are just all over the place', () => {
-            const results = parse(tabsEverywhere, options);
+        it('Should fail if tabs are just all over the place and options are set to not ignore extra tabs', () => {
+            const results = parse(tabsEverywhere, {
+                ...options,
+                ignoreBlankHeaderlessData: false
+            });
 
             results.lines.forEach((line) => {
                 expect(line.error).toBeTruthy();
                 expect(line.errorMessage).toEqual(
                     `Line has ${9} values, but header indicates ${3} values.`
                 );
+            });
+        });
+
+        it('Should succeed if tabs are just all over the place and options are set to ignore extra tabs', () => {
+            const results = parse(tabsEverywhere, {
+                ...options
+            });
+
+            results.lines.forEach((line) => {
+                expect(line.error).toBeFalsy();
+                expect(Object.keys(line.parsedLine)).toHaveLength(3);
             });
         });
     });
