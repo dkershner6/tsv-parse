@@ -62,7 +62,7 @@ jobs:
         with:
           node-version: 20.10.0
       - name: Install and Build
-        run: cd demo-site && npx npm-check-updates -u tsv-parse && npm i && npm run build
+        run: cd demo-site && npx npm-check-updates -u tsv-parse && npm i --force && npm run build
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.1
         with:
