@@ -1,7 +1,7 @@
 export const TSV_PARSER_DEFAULT_OPTIONS: TSVParserOptions = {
     headerRow: true,
     ignoreBlankRows: true,
-    ignoreBlankHeaderlessData: true
+    ignoreBlankHeaderlessData: true,
 };
 
 export default interface TSVParserOptions {
