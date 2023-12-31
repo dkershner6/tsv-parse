@@ -55,7 +55,7 @@ if (releaseWorkflow) {
                 },
                 {
                     name: "Install and Build",
-                    run: "cd demo-site && npx npm-check-updates -u tsv-parse && npm i && npm run build",
+                    run: "cd demo-site && npx npm-check-updates -u tsv-parse && npm i --force && npm run build",
                 },
                 {
                     name: "Deploy",
