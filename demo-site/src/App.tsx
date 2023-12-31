@@ -47,7 +47,7 @@ const App = () => {
         return (
             <tr className="table-success">
                 {Object.values(line.parsedLine).map((value) => (
-                    <td>{value}</td>
+                    <td>{value as string}</td>
                 ))}
             </tr>
         );
