@@ -49,6 +49,7 @@ junit.xml
 /lib
 /dist/
 !/.eslintrc.json
+.DS_Store
 !/.nvmrc
 !/.github/CODEOWNERS
 !/.projenrc.ts
